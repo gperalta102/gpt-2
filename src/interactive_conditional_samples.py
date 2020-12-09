@@ -14,7 +14,7 @@ def interact_model(
     seed=None,
     nsamples=1,
     batch_size=1,
-    length=15,
+    length=25,
     temperature=0.8,
     top_k=40,
     top_p=1,
@@ -34,7 +34,7 @@ def interact_model(
      temperature approaches zero, the model will become deterministic and
      repetitive. Higher temperature results in more random completions.
     :top_k=0 : Integer value controlling diversity. 1 means only 1 word is
-     considered for each step (token), resulting in deterministic completions,
+     considered for each step (token), resulting in deterministic completions,  
      while 40 means 40 words are considered at each step. 0 (default) is a
      special setting meaning no restrictions. 40 generally is a good value.
      :models_dir : path to parent folder containing model subfolders
