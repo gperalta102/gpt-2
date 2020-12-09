@@ -1,3 +1,8 @@
 __pycache__
 .mypy_cache/
 models/
+src/checkpoint/run1/model-37.meta
+src/checkpoint/run1/model-37.index
+src/checkpoint/run1/model-37.data-00000-of-00001
+src/checkpoint/run1/events.out.tfevents.1607525649.DESKTOP-95URNHV
+src/checkpoint/run1/counter

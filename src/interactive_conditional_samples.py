@@ -9,13 +9,14 @@ import tensorflow as tf
 import model, sample, encoder
 
 def interact_model(
-    model_name='124M',
+    #model_name='124M',
+    model_name='anime00',
     seed=None,
     nsamples=1,
     batch_size=1,
-    length=None,
-    temperature=1,
-    top_k=0,
+    length=15,
+    temperature=0.8,
+    top_k=40,
     top_p=1,
     models_dir='models',
 ):
@@ -44,9 +45,9 @@ def interact_model(
         batch_size = 1
     assert nsamples % batch_size == 0
 
-    enc = encoder.get_encoder(model_name, models_dir)
+    enc = encoder.get_encoder(model_name)
     hparams = model.default_hparams()
-    with open(os.path.join(models_dir, model_name, 'hparams.json')) as f:
+    with open(os.path.join('models', model_name, 'hparams.json')) as f:
         hparams.override_from_dict(json.load(f))
 
     if length is None:
@@ -70,6 +71,7 @@ def interact_model(
         saver.restore(sess, ckpt)
 
         while True:
+            #here is where th input is taken in
             raw_text = input("Model prompt >>> ")
             while not raw_text:
                 print('Prompt should not be empty!')
@@ -84,6 +86,7 @@ def interact_model(
                     generated += 1
                     text = enc.decode(out[i])
                     print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
+                    #text is where the output string is if one of you can figure out how to make this into a UI i think we are golden for like a C
                     print(text)
             print("=" * 80)
 
