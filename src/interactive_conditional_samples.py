@@ -72,10 +72,10 @@ def interact_model(
 
         while True:
             #here is where th input is taken in
-            raw_text = input("Model prompt >>> ")
+            raw_text = input("[YOU]>>> ")
             while not raw_text:
                 print('Prompt should not be empty!')
-                raw_text = input("Model prompt >>> ")
+                raw_text = input("[YOU]>>> ")
             context_tokens = enc.encode(raw_text)
             generated = 0
             for _ in range(nsamples // batch_size):
@@ -85,9 +85,9 @@ def interact_model(
                 for i in range(batch_size):
                     generated += 1
                     text = enc.decode(out[i])
-                    print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
+                    #print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
                     #text is where the output string is if one of you can figure out how to make this into a UI i think we are golden for like a C
-                    print(text)
+                    print("[BOT]",text)
             print("=" * 80)
 
 if __name__ == '__main__':
