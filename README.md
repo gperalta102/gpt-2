@@ -1,5 +1,5 @@
 # gpt-2
-Code for the paper "Language Models are Unsupervised Multitask Learners"
+Code for the paper
 
 
 # CHATBOT CHANGES
